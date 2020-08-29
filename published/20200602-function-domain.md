@@ -1,3 +1,9 @@
+---
+slug: "function-domain"
+date: "2020-06-02"
+title: "Function domain"
+---
+
 Functional programming is, funnily enough, all about functions. As such, it's good to refine how we write them. This post is all about the domains of our functions.
 
 ## What's the domain?

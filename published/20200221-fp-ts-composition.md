@@ -1,3 +1,9 @@
+---
+slug: "fp-ts-composition"
+date: "2020-02-21"
+title: "Composition in fp-ts"
+---
+
 Preface: All functions should strive to be pure, meaning they perform no side effects - all this means is that you take some data and return some data, and you don’t do anything outside the confines of said data. This post is written with this context in mind.
 
 The most fundamental aspect of FP that brings it all together is the idea of function composition - composing functions together like LEGO. Firstly, let’s look at it quickly in abstract:

@@ -1,3 +1,9 @@
+---
+slug: "js-fp-jargon"
+date: "2020-03-30"
+title: "Functional programming jargon for JavaScript devs"
+---
+
 If you're looking into functional programming for the first time, the terminology can be really overwhelming. I think one of the easiest ways to learn is to try and map the terms to concepts that you likely already know and then branch out from there.
 
 All of these terms have _laws_ that express limitations which ensure that all instances behave reasonably. We shan't go over them here, but it's good to know that - even if we're not ready to look into them yet - they exist, that there is a rich mathematical backing to these concepts. If this piques your curiosity at all, the best resource is probably [Typeclassopedia on HaskellWiki](https://wiki.haskell.org/Typeclassopedia).
