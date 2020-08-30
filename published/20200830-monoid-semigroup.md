@@ -8,7 +8,7 @@ This post contains examples written in Haskell and TypeScript ([fp-ts](https://g
 
 [Semigroups](https://en.wikipedia.org/wiki/Semigroup) and [monoids](https://en.wikipedia.org/wiki/Monoid) are mathematical structures that capture a very common programmatic operation, the reduction of multiple elements into one. Formalisms like this enable us to create and utilise otherwise unobtainable abstractions, and signal to other developers our intent with common language.
 
-But, to understand monoids, we must first begin with semigroups.
+To understand monoids, we must first begin with semigroups.
 
 ## Concatenation
 
