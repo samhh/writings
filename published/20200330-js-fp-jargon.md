@@ -116,9 +116,7 @@ const f = async (x: string): Promise<number> => {
 };
 ```
 
-Before we move on, if you were wondering why JavaScript's promise isn't a proper functor or monad, here's the legacy of that unfortunate decision:
-
-{% github https://github.com/promises-aplus/promises-spec/issues/94#issuecomment-16176966 %}
+Before we move on, if you were wondering why JavaScript's promise isn't a proper functor or monad, [here's](https://github.com/promises-aplus/promises-spec/issues/94#issuecomment-16176966) the legacy of that unfortunate decision.
 
 It hasn't aged particularly well. This also happens to be whence the [fantasy-land](https://github.com/fantasyland/fantasy-land) specification derived its name.
 
@@ -265,8 +263,4 @@ traverseOptArr([some(5), none],     option.map(x => x * 2)) // none
 ```
 
 Just like with sequencing, this will short-circuit if the type we're inverting is already in its failure state.
-
----
-
-I hope that's helpful to some of you reading. Let me know in the comments if there's anything in particular you'd like to see addressed that's missing.
 
