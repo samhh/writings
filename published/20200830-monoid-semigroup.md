@@ -1,7 +1,7 @@
 ---
 slug: "monoids-semigroups"
 date: "2020-08-30"
-title: "Monoids (and Semigroups)"
+title: "Monoids (and semigroups)"
 ---
 
 This post contains examples written in Haskell and TypeScript ([fp-ts](https://gcanti.github.io/fp-ts/modules/)).
