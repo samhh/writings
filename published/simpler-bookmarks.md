@@ -1,0 +1,28 @@
+---
+slug: "simpler-bookmarks"
+date: "2020-10-24"
+title: "A simpler approach to bookmarks"
+---
+
+We all use the web, and we all use bookmarks. But did you know that you don't have to use the bookmarking functionality built into your web browser?
+
+This is why a while ago I migrated to [buku](https://github.com/jarun/buku) and, at the time still pretty much living inside my web browser, I wrote [Bukubrow](https://github.com/samhh/bukubrow-webext). (I'm really creative at naming things as you can see!)
+
+Any external bookmark manager is a ton better than using that which is built into your browser for one key reason - you're no longer tied to a specific browser. Sure, you might (?) be able to import and export those bookmarks around, but it's a hassle and not something I'd want to rely upon as browser vendors struggle to find reasons to differentiate, leaving platform lock-in increasingly tempting. I'm certain at one point it wasn't possible at all, but I assume and hope that in the many years since things have improved.
+
+You want to know something really annoying about buku? It's written in Python. This means that, as the interpreter starts up on each `buku` invocation on the command-line, there's a perceptible delay that isn't present on any piece of software written in C, Rust, Go, Haskell, et cetera. (The same problem plagues JavaScript to an even worse extent.) It's a terrible user experience. When you're used to your terminal opening in mere milliseconds, this delay is extremely annoying. (Side note: If you're running something like [Alacritty](https://github.com/alacritty/alacritty) and your prompt isn't ready virtually immediately then you're probably using something like Oh My Zsh!, which butchers the startup time of the prompt.)
+
+Something else annoying about Python is the state of its package management. People rag on JavaScript projects' complex and slow build systems, but at least once it's distributed the end user typically has a single bundled script to run, just as with the other languages I've mentioned you'd generally have a single binary. Seemingly not so with Python! Installation of buku is painful because it carries with it a bunch of dependencies I don't care about. These are implementation details for the author, and they probably shouldn't be updated independently on my system. Can you imagine if all software was like this? You'd barely be able to go five minutes on Arch without some sort of dependency (of a dependency of a dependency) update requiring an update. [beets](https://beets.readthedocs.io/en/stable/), also written in Python, as much as I love it, suffers these same issues.
+
+This led me to wonder what alternatives are out there. After being broadly unsatisfied with what I found, and having spent a while really enjoying [pass](https://www.passwordstore.org/), I decided to roll my own solution. What started out as a vague idea to write a "simple" bookmark manager in Haskell a la pass resulted in a truly simple shell script. Introducing [flatmarks](https://github.com/samhh/dotfiles/blob/bcb15d05274478d78b4eecb7f56dd813f15a9dbe/home/scripts/flatmarks.sh), a script so simple it doesn't even warrant its own project page.
+
+This script depends upon only a single tool, [rofi](https://github.com/davatorium/rofi), something a lot of folks running Linux with tiling window managers will already be using. It could be trivially updated to use [dmenu](https://tools.suckless.org/dmenu/) or something else that can handle the interactive aspect. All it does is recursively collect the name of every file in a specified directory, present them to the user, and open the first line of the selected file in the browser. (Okay, technically it could open other stuff too as it's calling `xdg-open`, but I'm not sure what else you'd put here. Maybe links to [Gemini](https://gemini.circumlunar.space/)?)
+
+The bookmarks directory itself can be thought of in the same way as pass' password repo, except it's lacking encryption. I suppose that could be quite easily implemented as well if you felt that necessary.
+
+What does this look like in practice? I have a directory `~/.bookmarks/`, managed by git and backed up to a private remote somewhere, within which I have all my bookmarks. Most of them live at the root, but some are organised inside subdirectories. If ever I delete something and want it back, it's right there in my git history. I don't need to do anything at all if I change web browser. When I want to open a bookmark, regardless of where I am, I open [the keybind defined in my window manager](https://github.com/samhh/dotfiles/blob/0f25b2e7cf4ca26482221347afac0034fee9f921/home/xmonad-samhh/Main.hs#L273), which'll open it up in my web browser of choice, currently [vimb](https://github.com/fanglingsu/vimb). When I want to add a bookmark I simply pop it into the repo and, if I want to keep it around for more than just a brief period of time, I commit it.
+
+It's a little more upfront work but the end result, in my eyes, is a lot simpler. It's more ergonomic and it's far less hostile to customisation and change. That seems to be the tradeoff with a lot of technology, Linux on the desktop as another example. The same can be said for a lot of the other software I've mentioned in this post too. But it's totally worth it.
+
+For anyone still using Bukubrow, this is why there hasn't been much activity. It's not abandoned, but I also don't have much impetus to work on it as I did before as I no longer use it myself. You, too, might find a bash script and a git repo to be superior to anything more proprietary anyway.
+
