@@ -176,7 +176,7 @@ This change is important because of reasons.
 It's implemented in terms of something because of reasons.
 ```
 
-Another way, one much might more easily fit into how you commit code now, is to append additional message flags like so:
+Another way, one which might more easily fit into how you commit code now, is to append additional message flags like so:
 
 ```
 $ git commit 'Do a change' -m 'This change is important because of reasons.' -m 'It's implemented in terms of something because of reasons.'
