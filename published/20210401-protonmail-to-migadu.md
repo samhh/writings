@@ -32,7 +32,7 @@ And just like that it works. Better performance. Cheaper. Less restrictive. More
 
 As a bonus, here's something I discovered about interopability between [pass](https://www.passwordstore.org), aerc, and git.
 
-In aerc, you can specify account credentials dynamically with the `source-cred-cmd` and `outgoing-cred-cmd`, so you can point these directly at [a shell command that accesses pass's store](https://github.com/samhh/dotfiles/commit/a5118fb1336fa5bcfc77a2144e0f1c4c3bf14f04).
+In aerc, you can specify account credentials dynamically with the `source-cred-cmd` and `outgoing-cred-cmd` config keys, so you can point these directly at [a shell command that accesses pass's store](https://github.com/samhh/dotfiles/commit/a5118fb1336fa5bcfc77a2144e0f1c4c3bf14f04).
 
 In git, you can specify credential "helpers" dynamically with the help of [a ! bang, which too can be pointed at pass](https://github.com/samhh/dotfiles/commit/2a8348df40f32735265c295e28e287ea74093503). Note that the helper needs to provide the password prefixed with "password=".
 
